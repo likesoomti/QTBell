@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @board.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @board.content %>
+</p>
+
+<p>
+  <strong>Startbook:</strong>
+  <%= @board.startBook %>
+</p>
+
+<p>
+  <strong>Startchapter:</strong>
+  <%= @board.startChapter %>
+</p>
+
+<p>
+  <strong>Startverse:</strong>
+  <%= @board.startVerse %>
+</p>
+
+<p>
+  <strong>Endbook:</strong>
+  <%= @board.endBook %>
+</p>
+
+<p>
+  <strong>Endchapter:</strong>
+  <%= @board.endChapter %>
+</p>
+
+<p>
+  <strong>Endverse:</strong>
+  <%= @board.endVerse %>
+</p>
+
+<%= link_to 'Edit', edit_board_path(@board) %> |
+<%= link_to 'Back', boards_path %>

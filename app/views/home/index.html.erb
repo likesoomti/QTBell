@@ -1,0 +1,56 @@
+<div class="container" id="loading">
+    <div class="splashBOX">
+        <h1 class=""><%=@title%></h1>
+        <h5 class="mt-5"><%=@subtitle %></h5>
+        <div class="mt-5">
+            <a class="startButton" href="/boards">
+                시작하기
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    html,body {
+        height: 100%;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+    }
+    .splashBOX {
+        display: none;
+        text-align: center;
+    }
+    .startButton {
+        padding-left: 36px;
+        padding-right: 36px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: 1px solid black;
+        text-decoration-color: #000;
+        text-decoration: none;
+        color: black;
+    }
+    .startButton:hover {
+        background-color: #000;
+        color: #fff !important;
+        transition: background-color 2s;
+        text-decoration: none;
+        border: 0px;
+    }
+
+</style>
+
+<script>
+    // fade in animation
+    $( "div.splashBOX" ).fadeIn(2000,function(){
+    });
+    $("div.startButton").click(function(){
+        location.href="/boards"
+    });
+</script>
