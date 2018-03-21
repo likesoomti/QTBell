@@ -12,7 +12,8 @@
             more_horiz
           </i>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">공유하기</a>          
+
+            <%= link_to "로그아웃", destroy_user_session_path, method: :delete,class: "dropdown-item"%>
           </div>
         </div>
     </div>

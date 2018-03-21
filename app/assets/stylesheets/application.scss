@@ -46,6 +46,13 @@ a {
     flex-direction: column;
 
 }
+.no_header_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
 .showBOX {
     justify-content: center; 
     align-items: center;
