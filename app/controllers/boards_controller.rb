@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
+  before_action :set_user
 
   # GET /boards
   # GET /boards.json
@@ -62,6 +63,13 @@ class BoardsController < ApplicationController
   end
 
   private
+    def set_user
+      if(user_signed_in?)
+        "login user"
+      else
+        redirect_to '/login'
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_board
       @board = Board.find(params[:id])
