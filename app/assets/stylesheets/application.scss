@@ -20,7 +20,36 @@
 body {
     font-family: 'Nanum Myeongjo', serif;
     background-color: #f1f1f7;
+    // background-color: #FDF6E0;
 }
 *{
     box-sizing: border-box;
+}
+html,body {
+    height: 100%;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.padding-side {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+.widthFull {
+  width: 100%;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+@media(min-width:600px){
+    .container{
+        width: 100%;
+        margin: 0px auto;
+    }
 }
