@@ -35,7 +35,7 @@ a {
 .padding-side {
     padding-left: 5%;
     padding-right: 5%;
-  }
+}
 .widthFull {
   width: 100%;
 }
@@ -44,12 +44,22 @@ a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100%;
-}
 
-@media(min-width:600px){
-    .container{
-        width: 100%;
-        margin: 0px auto;
-    }
 }
+.showBOX {
+    justify-content: center; 
+    align-items: center;
+  }
+  .detail {
+    text-align: center;
+  }
+  .show {
+    text-align: center;
+  }
+  .showTitle {
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .showDate {
+    font-size: 11px;
+  }

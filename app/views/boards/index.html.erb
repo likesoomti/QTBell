@@ -1,10 +1,78 @@
 <%= render '/layouts/header' %>
-<div class="container">
-
+<div class="container padding-side">
+  <div class="boardListBOX">
+    <% if @boards.empty? %>
+      <div class="emptyBoardList">
+        아직 
+        하나님의 말씀이 
+        없어요
+      </div>
+    <% end %>
+    <% @boards.each do |p| %>
+      <div class="boardList moveDetailPage widthFull" id="<%=p.id%>">
+        <div class="boardListHeader">
+          <div></div>
+          <div><%=p.created_at.to_s[0..10]%></div>
+        </div>
+        <div class="boardListContent">
+          <div class="padding-side">"<%=p.title %>"</div>
+        </div>
+        <div class="boardListFooter">
+            <%= BoardsHelper.readBibleFromTo(p) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
+<%= render '/layouts/create_footer' %>
 <style>
+  .boardListBOX {
+    width: 100%;
+    height: 600px;
+    overflow: scroll;
+  }
   .container {
+    justify-content: flex-start;
+
+  }
+  .emptyBoardList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .boardList {
+    height: 113px;
+    border: 1px solid black;
+    padding: 10px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .boardListHeader {
+    flex:1 ;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+  .boardListContent {
+    display: flex;
+    flex:1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 13px;
+  }
+  .boardListFooter {
+    display: flex;
+    flex: 1;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size: 13px;
   }
 </style>
+<script>
+  $(".moveDetailPage").click(function(){
+    movepage = "boards/"+ $(this)[0].id;
+    $(location).attr('href',movepage);
+  })
+</script>

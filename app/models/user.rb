@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :board
   # Include default devise modules. Others available are:
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable, :omniauthable

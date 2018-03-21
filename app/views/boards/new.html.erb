@@ -1,5 +1,17 @@
-<h1>New Board</h1>
+<%= render '/layouts/create_header' %>
+<div class="container">
+    <%= render 'form', board: @board %>
 
-<%= render 'form', board: @board %>
+</div>
+<style>
+.container {
+    width: 100%;
+    justify-content: flex-start;
+}
 
-<%= link_to 'Back', boards_path %>
+</style>
+<script>
+$(".formSubmit").click(function(){
+    $(".newBoard").submit();
+})
+</script>

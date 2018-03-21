@@ -1,44 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%= render '/layouts/show_header' %>
+<div class="container">            
+  <div class="showBOX padding-side widthFull">
+    <div class="show showTitle m-3">
+      <%=@board.title %>
+    </div>
+    <div class="show showContent m-3">
+      <%= @board.content %>
+    </div>
+    <div class="show showDate m-3">
+      <%= BoardsHelper.registerBoardTime(@board) %><br>
+      <%= BoardsHelper.readBibleFromTo(@board) %>
+    </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @board.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @board.content %>
-</p>
-
-<p>
-  <strong>Startbook:</strong>
-  <%= @board.startBook %>
-</p>
-
-<p>
-  <strong>Startchapter:</strong>
-  <%= @board.startChapter %>
-</p>
-
-<p>
-  <strong>Startverse:</strong>
-  <%= @board.startVerse %>
-</p>
-
-<p>
-  <strong>Endbook:</strong>
-  <%= @board.endBook %>
-</p>
-
-<p>
-  <strong>Endchapter:</strong>
-  <%= @board.endChapter %>
-</p>
-
-<p>
-  <strong>Endverse:</strong>
-  <%= @board.endVerse %>
-</p>
-
-<%= link_to 'Edit', edit_board_path(@board) %> |
-<%= link_to 'Back', boards_path %>
+<style>
+.container {
+  height: 90%;
+}
+.showBOX {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  border: 1px solid #c5c5c5;
+}
+</style>

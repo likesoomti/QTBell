@@ -1,0 +1,17 @@
+<div class="header padding-side">
+  <div class="headerList moveBackPage">
+      <%= link_to '뒤로가기', boards_path %>
+  </div>
+  <div class="headerList moreMenu">
+    <div class="dropdown">
+      <i class="material-icons" type="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        more_horiz
+      </i>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">공유하기</a>
+        <%= link_to '글 수정하기', edit_board_path(@board),class:"dropdown-item" %>
+        <%= link_to '글 삭제하기', @board, method: :delete, data: { confirm: 'Are you sure?' },class: "dropdown-item" %>
+      </div>
+    </div>
+  </div>
+</div>

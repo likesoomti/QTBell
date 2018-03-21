@@ -1,6 +1,15 @@
-<h1>Editing Board</h1>
-
-<%= render 'form', board: @board %>
-
-<%= link_to 'Show', @board %> |
-<%= link_to 'Back', boards_path %>
+<%= render '/layouts/create_header' %>
+<div class="container">
+    <%= render 'form', board: @board %>
+</div>
+<style>
+.container {
+    width: 100%;
+    justify-content: flex-start;
+}
+</style>
+<script>
+$(".formSubmit").click(function(){
+    $(".newBoard").submit();
+})
+</script>
