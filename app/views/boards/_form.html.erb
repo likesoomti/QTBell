@@ -32,7 +32,7 @@
           <%= form.text_field :startVerse, id: :board_startVerse ,placeholder: "1"%>
         </div>
     </div>
-    <div>-</div>
+    <div>~</div>
     <div class="endBible">
       <div class="field newBook">
         <%= form.select :endBook, BoardsHelper.bookList, id: :board_endBook,  include_blank: true,:selected => "ge"%>
@@ -49,14 +49,8 @@
       </div>
     </div>
   </div>
-
   <% end %>
 </div>
-
-<style>
-
-</style>
-
 <script>
 
   $(document).ready(function(){

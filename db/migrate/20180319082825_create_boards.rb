@@ -9,6 +9,7 @@ class CreateBoards < ActiveRecord::Migration[5.1]
       t.string :endBook
       t.string :endChapter
       t.string :endVerse
+      t.string :randomPhotoBackground
       t.references :user, foreign_key: true
 
       t.timestamps

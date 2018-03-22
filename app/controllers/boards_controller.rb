@@ -27,6 +27,7 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(board_params)
     respond_to do |format|
+      @board.randomPhotoBackground = BoardsHelper.randomImage.sample()
       if @board.save
         format.html { redirect_to @board, notice: 'Board was successfully created.' }
         format.json { render :show, status: :created, location: @board }

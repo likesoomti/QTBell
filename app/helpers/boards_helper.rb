@@ -94,4 +94,14 @@ module BoardsHelper
  
     end
 
+
+    def randomImage
+        image = Array.new
+        image.push("https://s3.ap-northeast-2.amazonaws.com/dailyquiettime/quite1.jpg")
+        image.push("https://s3.ap-northeast-2.amazonaws.com/dailyquiettime/quite2.jpg")
+        image.push("https://s3.ap-northeast-2.amazonaws.com/dailyquiettime/quite3.jpg")
+        image.push("https://s3.ap-northeast-2.amazonaws.com/dailyquiettime/quite4.jpg")
+        image.push("https://s3.ap-northeast-2.amazonaws.com/dailyquiettime/quite5.jpg")
+        image.push("https://s3.ap-northeast-2.amazonaws.com/dailyquiettime/quite6.jpg")
+    end
 end

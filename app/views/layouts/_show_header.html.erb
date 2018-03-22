@@ -1,6 +1,6 @@
-<div class="header padding-side">
+<header class="header padding-side">
   <div class="headerList moveBackPage">
-      <%= link_to '뒤로가기', boards_path %>
+      <%= link_to('뒤로가기', boards_path,class: "showBackLink") %>
   </div>
   <div class="headerList moreMenu">
     <div class="dropdown">
@@ -14,4 +14,12 @@
       </div>
     </div>
   </div>
-</div>
+</header>
+<style>
+.showBackLink {
+  /* color:white */
+}
+div.dropdown {
+  /* color:white */
+}
+</style>
