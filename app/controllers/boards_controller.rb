@@ -28,6 +28,8 @@ class BoardsController < ApplicationController
     @board = Board.new(board_params)
     respond_to do |format|
       @board.randomPhotoBackground = BoardsHelper.randomImage.sample()
+      @board.startBook = BoardsHelper.engChangeName(board_params[:startBook])
+      @board.endBook = BoardsHelper.engChangeName(board_params[:endBook])
       if @board.save
         format.html { redirect_to @board, notice: 'Board was successfully created.' }
         format.json { render :show, status: :created, location: @board }

@@ -22,11 +22,11 @@
   </div>
   <div class="newBoardBible">
     <div class="startBible">
-        <div class="field newBook select_form">
-            <%= form.select :startBook, BoardsHelper.bookList, id: :board_startBook, include_blank: true,:selected => "ge"%>
+        <div class="field newBook">
+            <%= form.select :startBook, BoardsHelper.bookList, id: :board_startBook,:selected => "ge"%>
         </div>
         <div class="field newBible">
-          <%= form.select :startChapter,options_for_select(0..50), id: :board_startBook, include_blank: true%>
+          <%= form.select :startChapter,options_for_select(1..50), id: :board_startBook,:selected =>"1"%>
         </div>
         <div class="field newBible">
           <%= form.text_field :startVerse, id: :board_startVerse ,placeholder: "1"%>
@@ -39,10 +39,10 @@
 
       </div>
       <div class="field newBible">  
-        <%= form.select :endChapter,options_for_select(0..50), id: :board_endChapter, include_blank: true%>
+        <%= form.select :endChapter,options_for_select(1..50), id: :board_endChapter,:selected =>"1"%>
       </div>
       <div class="field newBible">
-        <%= form.text_field :endVerse, id: :board_endVerse,placeholder: "1" %>
+        <%= form.text_field :endVerse, id: :board_endVerse,placeholder: "1"%>
       </div>
       <div class="hidden_field">
           <%= form.hidden_field :user_id, id: :review_user_id, value: current_user.id%>
@@ -94,6 +94,7 @@
         chapterSize = data;
       }
     })
+    console.log("here");
     return chapterSize;
   }
 

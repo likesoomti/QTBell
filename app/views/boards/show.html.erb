@@ -1,10 +1,10 @@
 <%= render '/layouts/show_header' %>
 <div class="header_footer padding-side">            
   <div class="showBOX padding-side widthFull">
-    <div class="show showContent m-3">
+    <div class="show showContent m-2">
       <%= simple_format(@board.content,class: "content") %>
     </div>
-    <div class="show showDate m-3">
+    <div class="show showDate m-2">
       <%= BoardsHelper.registerBoardTime(@board) %><br>
       <%= BoardsHelper.readBibleFromTo(@board) %>
     </div>
@@ -16,11 +16,6 @@
 
 
 <style>
-body {
-  background: linear-gradient(#00000080, #00000080,#00000080), url(<%=@board.randomPhotoBackground%>) no-repeat center; 
-  background-size: cover;
- }
-
 .showBOX {
   display: flex;
   flex-direction: column;
@@ -28,8 +23,7 @@ body {
   align-items: center;
   height:100%;
   border: 1px solid #c5c5c5;
-  color: #ffffffd4;
-   background-size: cover;
+  background-size: cover;
 }
 .title {
   font-size: 15px;

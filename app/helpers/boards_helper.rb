@@ -104,4 +104,32 @@ module BoardsHelper
         image.push("https://s3.ap-northeast-2.amazonaws.com/dailyquiettime/quite5.jpg")
         image.push("https://s3.ap-northeast-2.amazonaws.com/dailyquiettime/quite6.jpg")
     end
+
+    def engChangeName(eng)
+        puts eng
+        findBook =  BookList.where(eng: eng).first
+        return findBook.name
+    end
+
+    # true -> 쓰기가능
+    # false -> 못씀
+    def isDayWrite(user)
+        writeuser = User.find(user)
+        userwriteboard = writeuser.board
+
+        unless(userwriteboard.empty?||userwriteboard == "")
+            lastwrite =  userwriteboard.last().created_at.to_date
+            today = Time.zone.today
+            
+            if(today == lastwrite)
+                puts "false"
+                return false
+            end
+        end
+        return true
+    end
+
+    def countDayQuiet(board)
+        return (Time.zone.today-board.created_at.to_date).to_i+1
+    end
 end

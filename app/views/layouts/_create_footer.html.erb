@@ -1,8 +1,12 @@
 <footer class="footer padding-side">
+
+    <% if(BoardsHelper.isDayWrite(current_user.id)) %>
     <a href="/boards/new">
         <div class="icon">글쓰기 <%= image_tag  image_path "writeBtn.png" %></div>
     </a>
-  
+    <% else %>
+       <div class="icon">글쓰기 <%= image_tag  image_path "writeBtn.png" %></div>
+    <%  end %>  
 </footer>
 <style>
 .footer {
