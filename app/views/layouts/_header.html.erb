@@ -1,0 +1,19 @@
+<header class="header padding-side">
+    <div class="headerList moveBackPage">
+      <div>
+
+        <%= BoardsHelper.countQT(current_user) %>
+      </div>
+    </div>
+    <div class="headerList moreMenu">
+      <div class="dropdown">
+          <i class="material-icons" type="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            more_horiz
+          </i>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+            <%= link_to "로그아웃", destroy_user_session_path, method: :delete,class: "dropdown-item"%>
+          </div>
+        </div>
+    </div>
+</header>

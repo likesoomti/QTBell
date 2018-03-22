@@ -1,0 +1,114 @@
+<div class="newBoardBOX widthFull">
+  <%= form_with(model: board, local: true,class: :newBoard) do |form| %>
+  <div class="errorMessage">
+    <% if board.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(board.errors.count, "error") %> prohibited this board from being saved:</h2>
+
+        <ul>
+        <% board.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <div class="field newBoard newBoardTitle">
+      <%= form.text_field :title, id: :board_title, placeholder: "제목"%>
+  </div>
+
+  <div class="field newBoard newBoard newBoardContent">
+    <%= form.text_area :content, id: :board_content,size:100,placeholder: "말씀을 입력하세요."%>
+  </div>
+  <div class="newBoardBible">
+    <div class="startBible">
+        <div class="field newBook">
+            <%= form.select :startBook, BoardsHelper.bookList, id: :board_startBook,:selected => "ge"%>
+        </div>
+        <div class="field newBible">
+          <%= form.select :startChapter,options_for_select(1..50), id: :board_startBook,:selected =>"1"%>
+        </div>
+        <div class="field newBible">
+          <%= form.text_field :startVerse, id: :board_startVerse ,placeholder: "1"%>
+        </div>
+    </div>
+    <div>~</div>
+    <div class="endBible">
+      <div class="field newBook">
+        <%= form.select :endBook, BoardsHelper.bookList, id: :board_endBook,  include_blank: true,:selected => "ge"%>
+
+      </div>
+      <div class="field newBible">  
+        <%= form.select :endChapter,options_for_select(1..50), id: :board_endChapter,:selected =>"1"%>
+      </div>
+      <div class="field newBible">
+        <%= form.text_field :endVerse, id: :board_endVerse,placeholder: "1"%>
+      </div>
+      <div class="hidden_field">
+          <%= form.hidden_field :user_id, id: :review_user_id, value: current_user.id%>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<script>
+
+  $(document).ready(function(){
+
+  var startBook = "select[name='board[startBook]']"
+  var endBook = "select[name='board[endBook]']"
+
+    
+  var changeSelect = function (){
+    var selector = 'select[name="board[startChapter]"]'
+
+    bookname =  $(this)[0].value;
+    chapterSize = getChapterSize(bookname);
+
+    isBook = $(this)[0].name 
+
+
+    if (isBook == "board[endBook]"){
+      selector = 'select[name="board[endChapter]"]'
+    }
+
+    setChapterSize(chapterSize,selector)
+  }
+
+  $(startBook).change(changeSelect);
+  $(endBook).change(changeSelect);
+
+
+
+
+
+  var getChapterSize = function(bookname){
+    var chapterSize;
+    $.ajax({
+      url: "/api/getChapter",
+      type:"get",
+      dataType: "text",
+      async: false,
+      data: {bookname: bookname},
+      success: function(data){
+        chapterSize = data;
+      }
+    })
+    console.log("here");
+    return chapterSize;
+  }
+
+  var setChapterSize = function(chapter,selector){
+    $(selector).empty();
+    for (i=1;i<=chapter ;i++){
+      $(selector).append('<option value="'+i+'">'+i+"</option>" );  
+    }
+  }
+
+
+
+  });
+
+
+ 
+</script>

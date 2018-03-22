@@ -1,0 +1,15 @@
+<%= render '/layouts/create_header' %>
+<div class="header_footer padding-side">
+    <%= render 'form', board: @board %>
+</div>
+<style>
+.container {
+    width: 100%;
+    justify-content: flex-start;
+}
+</style>
+<script>
+$(".formSubmit").click(function(){
+    $(".newBoard").submit();
+})
+</script>
