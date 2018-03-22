@@ -5,7 +5,7 @@
       <%=@board.title %>
     </div>
     <div class="show showContent m-3">
-      <%= @board.content %>
+      <%= simple_format(@board.content) %>
     </div>
     <div class="show showDate m-3">
       <%= BoardsHelper.registerBoardTime(@board) %><br>

@@ -5,7 +5,7 @@ class BoardsController < ApplicationController
   # GET /boards
   # GET /boards.json
   def index
-    @boards = Board.where(user: current_user)
+    @boards = Board.where(user: current_user).order(created_at: :desc)
   end
 
   # GET /boards/1
@@ -26,7 +26,6 @@ class BoardsController < ApplicationController
   # POST /boards.json
   def create
     @board = Board.new(board_params)
-
     respond_to do |format|
       if @board.save
         format.html { redirect_to @board, notice: 'Board was successfully created.' }

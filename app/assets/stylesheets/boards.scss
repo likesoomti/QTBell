@@ -1,3 +1,53 @@
 // Place all the styles related to the Boards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.newBoardBOX {
+    border: 1px solid #c5c5c5;
+    height: 595px;
+    background-color: #f9f9ff;
+    padding: 20px 15px;
+  
+  }    
+  .newBoardTitle {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #c5c5c5;
+    font-size: 18px;
+  
+  }
+  .newBoard input {
+    width: 100%;
+    background-color: #f9f9ff;
+    border: 0px;
+    color: black;
+  }
+  .newBoardContent {
+    margin-top: 20px;
+    height: 477px;
+    font-size: 18px;
+  }
+  #board_content {
+    height: 99%;
+    width: 100%;
+    background-color: #f9f9ff;
+    border: 0px;
+  }
+
+  .newBoardBible {
+    display: flex;
+    justify-content: space-around;
+  }
+  .startBible,
+  .endBible {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+  .newBible select,
+  .newBible input {
+    width: 35px;
+    font-size: 11px;
+  }
+  .newBook select{
+    width: 80px;
+     font-size: 11px;
+  }
