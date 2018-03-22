@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20180319083139) do
 
   create_table "book_lists", force: :cascade do |t|
     t.string "name"
+    t.string "eng"
     t.integer "endChapter"
     t.integer "group"
     t.datetime "created_at", null: false
