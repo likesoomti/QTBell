@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180319083139) do
     t.string "endBook"
     t.string "endChapter"
     t.string "endVerse"
+    t.string "randomPhotoBackground"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180319083139) do
 
   create_table "book_lists", force: :cascade do |t|
     t.string "name"
+    t.string "eng"
     t.integer "endChapter"
     t.integer "group"
     t.datetime "created_at", null: false

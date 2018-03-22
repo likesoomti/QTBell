@@ -18,39 +18,96 @@
   </div>
 
   <div class="field newBoard newBoard newBoardContent">
-    <%= form.text_area :content, id: :board_content,size:100, placeholder: "말씀을 입력하세요." %>
+    <%= form.text_area :content, id: :board_content,size:100,placeholder: "말씀을 입력하세요."%>
   </div>
   <div class="newBoardBible">
     <div class="startBible">
-        <div class="field newBook">
-            <%= form.text_field :startBook, id: :board_startBook,placeholder: "창세기" %>
+        <div class="field newBook select_form">
+            <%= form.select :startBook, BoardsHelper.bookList, id: :board_startBook, include_blank: true,:selected => "ge"%>
         </div>
         <div class="field newBible">
-          <%= form.text_field :startChapter, id: :board_startChapter,placeholder: "1" %>
+          <%= form.select :startChapter,options_for_select(0..50), id: :board_startBook, include_blank: true%>
         </div>
         <div class="field newBible">
           <%= form.text_field :startVerse, id: :board_startVerse ,placeholder: "1"%>
         </div>
     </div>
-    <div>-</div>
+    <div>~</div>
     <div class="endBible">
       <div class="field newBook">
-        <%= form.text_field :endBook, id: :board_endBook,placeholder: "창세기"  %>
+        <%= form.select :endBook, BoardsHelper.bookList, id: :board_endBook,  include_blank: true,:selected => "ge"%>
+
       </div>
       <div class="field newBible">  
-        <%= form.text_field :endChapter, id: :board_endChapter,placeholder: "1" %>
+        <%= form.select :endChapter,options_for_select(0..50), id: :board_endChapter, include_blank: true%>
       </div>
-        <div class="field newBible">
-        <%= form.text_field :endVerse, id: :board_endVerse,placeholder: "2" %>
+      <div class="field newBible">
+        <%= form.text_field :endVerse, id: :board_endVerse,placeholder: "1" %>
       </div>
       <div class="hidden_field">
           <%= form.hidden_field :user_id, id: :review_user_id, value: current_user.id%>
       </div>
     </div>
   </div>
-
   <% end %>
 </div>
-<style>
+<script>
+
+  $(document).ready(function(){
+
+  var startBook = "select[name='board[startBook]']"
+  var endBook = "select[name='board[endBook]']"
+
+    
+  var changeSelect = function (){
+    var selector = 'select[name="board[startChapter]"]'
+
+    bookname =  $(this)[0].value;
+    chapterSize = getChapterSize(bookname);
+
+    isBook = $(this)[0].name 
+
+
+    if (isBook == "board[endBook]"){
+      selector = 'select[name="board[endChapter]"]'
+    }
+
+    setChapterSize(chapterSize,selector)
+  }
+
+  $(startBook).change(changeSelect);
+  $(endBook).change(changeSelect);
+
+
+
+
+
+  var getChapterSize = function(bookname){
+    var chapterSize;
+    $.ajax({
+      url: "/api/getChapter",
+      type:"get",
+      dataType: "text",
+      async: false,
+      data: {bookname: bookname},
+      success: function(data){
+        chapterSize = data;
+      }
+    })
+    return chapterSize;
+  }
+
+  var setChapterSize = function(chapter,selector){
+    $(selector).empty();
+    for (i=1;i<=chapter ;i++){
+      $(selector).append('<option value="'+i+'">'+i+"</option>" );  
+    }
+  }
+
+
+
+  });
+
+
  
-</style>
+</script>

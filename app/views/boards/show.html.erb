@@ -1,28 +1,40 @@
 <%= render '/layouts/show_header' %>
-<div class="container">            
+<div class="header_footer padding-side">            
   <div class="showBOX padding-side widthFull">
-    <div class="show showTitle m-3">
-      <%=@board.title %>
-    </div>
     <div class="show showContent m-3">
-      <%= @board.content %>
+      <%= simple_format(@board.content,class: "content") %>
     </div>
     <div class="show showDate m-3">
       <%= BoardsHelper.registerBoardTime(@board) %><br>
       <%= BoardsHelper.readBibleFromTo(@board) %>
     </div>
+
+  </div>
 </div>
+<footer class="footer">
+</footer>
+
 
 <style>
-.container {
-  height: 90%;
-}
+body {
+  background: linear-gradient(#00000080, #00000080,#00000080), url(<%=@board.randomPhotoBackground%>) no-repeat center; 
+  background-size: cover;
+ }
+
 .showBOX {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90%;
+  height:100%;
   border: 1px solid #c5c5c5;
+  color: #ffffffd4;
+   background-size: cover;
+}
+.title {
+  font-size: 15px;
+}
+.content {
+  font-size: 11px !important;
 }
 </style>

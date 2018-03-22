@@ -1,19 +1,19 @@
-<div class="header padding-side">
+<header class="header padding-side">
     <div class="headerList moveBackPage">
       <div>
-        <%# BoardsHelper.startQT(current_user)%>
+        <%= BoardsHelper.startQT(current_user)%>
         <%= BoardsHelper.countQT(current_user) %>
       </div>
     </div>
     <div class="headerList moreMenu">
-      <%# BoardsHelper.countQT(current_user) %>
       <div class="dropdown">
           <i class="material-icons" type="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             more_horiz
           </i>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">공유하기</a>          
+
+            <%= link_to "로그아웃", destroy_user_session_path, method: :delete,class: "dropdown-item"%>
           </div>
         </div>
     </div>
-  </div>
+</header>
