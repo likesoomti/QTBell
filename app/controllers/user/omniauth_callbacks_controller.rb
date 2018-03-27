@@ -21,9 +21,10 @@ class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def after_sign_in_path_for(resource)
     @user = User.find(current_user.id)
     if @user.persisted?
-      puts "로그인 이후 경로 설정하는 곳인가요?"
+      puts "after_sign_in_path for > persisted"
+      root_path
     else
-      puts "로그인 이후 경로 설정하는 곳인가요?"
+      root_path
     end
   end
 end
