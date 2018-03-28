@@ -14,26 +14,24 @@
         var BoardTitle = $("#board_title")[0].value
         var BoardContent = $("#board_content")[0].value
 
-        var StartBook = $("select[name='board[startBook]']")[0].value
+        var bookAbbr = $("select[name='board[bookAbbr]']")[0].value
         var StartChap = $("select[name='board[startChapter]']")[0].value
         var StartVerse = $("#board_startVerse")[0].value;
         var EndChap = "select[name='board[endChapter]']"
-        var EndBook = "select[name='board[endBook]']"
         var EndVerse = $("#board_endVerse")[0].value;
 
         var flagValidation = true;
 
-        console.log(StartBook,StartChap,StartVerse);
+        console.log(bookAbbr,StartChap,StartVerse);
 
         if(!(checkVali(BoardTitle) && checkVali(BoardContent))){
             flagValidation = false;
             alert("제목 또는 내용을 채워주세요");
-        }else if(!(checkVali(StartBook) && checkVali(StartChap) && checkVali(StartVerse) && 
-            checkVali(EndBook) && checkVali(EndChap) &&checkVali(EndVerse))){
+        }else if(!(checkVali(bookAbbr) && checkVali(StartChap) && checkVali(StartVerse) && 
+            checkVali(EndChap) &&checkVali(EndVerse))){
             flagValidation = false;
             alert("구절에 안채운 부분이 있는지 확인해주세요");
         }
- 
 
         return flagValidation;
     }

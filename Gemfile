@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0'
 # simple_form
 gem 'simple_form'
+# devise korean
+gem 'devise-i18n'
 # devise
 gem 'devise'
 # facebook login
