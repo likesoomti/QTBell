@@ -34,20 +34,32 @@
 
   .newBoardBible {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    margin-bottom: 5px;
   }
   .startBible,
   .endBible {
     display: flex;
-    flex: 1;
-    justify-content: center;
+
   }
   .newBible select,
   .newBible input {
+    margin-right: 5px;
     width: 35px;
     font-size: 11px;
+    -webkit-appearance: none; /* 화살표 없애기 for chrome*/
+    -moz-appearance: none;    /* 화살표 없애기 for firefox*/
+    appearance: none;         /* 화살표 없애기 공통*/
   }
   .newBook select{
-    width: 80px;
-     font-size: 11px;
+    margin-right: 5px;
+    width: 60px;
+    font-size: 11px;
+    -webkit-appearance: none; /* 화살표 없애기 for chrome*/
+    -moz-appearance: none;    /* 화살표 없애기 for firefox*/
+    appearance: none;         /* 화살표 없애기 공통*/
+  }
+
+  select::-ms-expand {
+     display: none;            /* 화살표 없애기 for IE10, 11*/
   }

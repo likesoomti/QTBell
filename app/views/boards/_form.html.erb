@@ -16,11 +16,11 @@
   <div class="field newBoard newBoardTitle">
       <%= form.text_field :title, id: :board_title, placeholder: "제목"%>
   </div>
-
+ 
   <div class="field newBoard newBoard newBoardContent">
     <%= form.text_area :content, id: :board_content,size:100,placeholder: "말씀을 입력하세요."%>
   </div>
-  <div class="newBoardBible">
+ <div class="newBoardBible ">
     <div class="startBible">
         <div class="field newBook">
             <%= form.select :bookAbbr, BoardsHelper.bookList, id: :board_bookAbbr,:selected => "ge"%>
