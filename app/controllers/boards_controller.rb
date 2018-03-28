@@ -28,8 +28,10 @@ class BoardsController < ApplicationController
     @board = Board.new(board_params)
     respond_to do |format|
       @board.randomPhotoBackground = BoardsHelper.randomImage.sample()
-      @board.startBook = BoardsHelper.engChangeName(board_params[:startBook])
-      @board.endBook = BoardsHelper.engChangeName(board_params[:endBook])
+      puts board_params[:bookAbbr]
+
+      @board.book = BoardsHelper.engChangeName(board_params[:bookAbbr])
+   
       if @board.save
         format.html { redirect_to @board, notice: 'Board was successfully created.' }
         format.json { render :show, status: :created, location: @board }
@@ -79,6 +81,6 @@ class BoardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def board_params
-      params.require(:board).permit(:title, :content, :startBook, :startChapter, :startVerse, :endBook, :endChapter, :endVerse, :user_id)
+      params.require(:board).permit(:title, :content, :book, :startChapter, :startVerse, :bookAbbr, :endChapter, :endVerse, :user_id)
     end
 end
