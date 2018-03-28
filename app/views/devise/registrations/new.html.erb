@@ -8,32 +8,30 @@
         <%= f.error_notification %>
       </div>
       <div class="form-inputs padding-side widthFull">
-        <%= f.input :email, required: true, autofocus: true,label: false, placeholder: "EMAIL"%>
-        <%= f.input :password, required: true, label: false, placeholder: "PASSWORD", hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-        <%= f.input :password_confirmation,placeholder: "PASSWORD" ,required: true,label:false %>
+        <%= f.input :email, required: true, autofocus: true,label: false, placeholder: "이메일을 입력해 주세요"%>
+        <%= f.input :password, required: true, label: false, placeholder: "비밀번호를 입력해주세요", hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+        <%= f.input :password_confirmation,placeholder: "비밀번호를 다시 한번 입력해 주세요" ,required: true,label:false %>
       </div>
 
         <div class="form-actions  padding-side widthFull">
-            <%= f.button :submit, "Sign up" %>
+            <%= f.button :submit, "회원가입" %>
         </div>
 
         <div class="signOther mt-4">
             <div class="SignInButton">
               <%- if controller_name != 'sessions' %>
-                <%= link_to "Log in", new_session_path(resource_name) %><br />
+                <%= link_to "로그인", new_session_path(resource_name) %><br />
               <% end -%>
             </div>
             <div class="FacebookLoginButton">
               <%- if devise_mapping.omniauthable? %>
                 <%- resource_class.omniauth_providers.each do |provider| %>
-                  <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+                  <%= link_to " #{OmniAuth::Utils.camelize(provider)} 로그인", omniauth_authorize_path(resource_name, provider) %><br />
                 <% end -%>
               <% end -%>
             </div>
         </div>
       
-    
-
     <% end %>
     </div>
 </div>

@@ -3,7 +3,7 @@
 one:
   title: MyString
   content: MyString
-  startBook: MyString
+  book: MyString
   startChapter: MyString
   startVerse: MyString
   endBook: MyString
@@ -13,7 +13,7 @@ one:
 two:
   title: MyString
   content: MyString
-  startBook: MyString
+  book: MyString
   startChapter: MyString
   startVerse: MyString
   endBook: MyString

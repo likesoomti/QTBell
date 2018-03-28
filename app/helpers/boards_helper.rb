@@ -1,3 +1,5 @@
+require 'open-uri'
+require 'nokogiri'
 module BoardsHelper
     extend self
 
@@ -6,7 +8,7 @@ module BoardsHelper
     end
     
     def readBibleFromTo(board)
-        return board.startBook+" "+ board.startChapter+":"+board.startVerse+" - "+board.endBook+" "+board.endChapter+":"+board.endVerse
+        return board.book+" "+ board.startChapter+":"+board.startVerse+" - "+board.endChapter+":"+board.endVerse
     end
 
     def startQT(user)
@@ -105,9 +107,8 @@ module BoardsHelper
         image.push("https://s3.ap-northeast-2.amazonaws.com/dailyquiettime/quite6.jpg")
     end
 
-    def engChangeName(eng)
-        puts eng
-        findBook =  BookList.where(eng: eng).first
+    def engChangeName(bookAbbr)
+        findBook =  BookList.where(eng: bookAbbr).first
         return findBook.name
     end
 
@@ -116,7 +117,6 @@ module BoardsHelper
     def isDayWrite(user)
         writeuser = User.find(user)
         userwriteboard = writeuser.board
-
         unless(userwriteboard.empty?||userwriteboard == "")
             lastwrite =  userwriteboard.last().created_at.to_date
             today = Time.zone.today
@@ -131,5 +131,16 @@ module BoardsHelper
 
     def countDayQuiet(board)
         return (Time.zone.today-board.created_at.to_date).to_i+1
+    end
+
+    def bibleContent(bible)
+
+        url = "http://ibibles.net/quote.php?kor-"
+        url +="#{bible.bookAbbr}/#{bible.startChapter}:#{bible.startVerse}"
+        url +="-#{bible.endChapter}:#{bible.endVerse}"
+
+        docs = Nokogiri::HTML(open(url)).text
+
+        return docs
     end
 end

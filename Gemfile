@@ -8,7 +8,8 @@ end
 gem 'jquery-rails'
 # bootstrap
 gem 'bootstrap', '~> 4.0.0'
-
+# devise korean
+gem 'devise-i18n'
 # devise
 gem 'devise'
 # facebook login
