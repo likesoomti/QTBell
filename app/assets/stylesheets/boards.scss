@@ -8,7 +8,11 @@
     padding: 20px 15px;
   
   }    
-
+  .showBOX {
+    justify-content: center; 
+    align-items: center;
+    overflow: scroll;
+  }
   .bibleSelect {
     border: 1px solid #c5c5c5;
     height: 50px;
@@ -72,3 +76,53 @@
   select::-ms-expand {
      display: none;            /* 화살표 없애기 for IE10, 11*/
   }
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide {
+    height: 100%;
+    border: 1px solid #c5c5c5;
+    text-align: center;
+    font-size: 18px;
+    background: #f1f1f7;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+      overflow: scroll;
+  }
+  .bibleScroll {
+  
+  }
+  .showBOX {
+    width:100%;
+    height:100%;
+    border: 1px solid #c5c5c5;
+    background-size: cover;
+  }
+  .title {
+    font-size: 15px;
+  }
+  .content {
+    font-size: 11px !important;
+  }
+  .bible {
+    font-size: 11px !important;
+  }
+  .swiper-container{
+    height: calc(100% - 56px);
+  }
+  .carousel-inner {
+    height:100%;
+    }
