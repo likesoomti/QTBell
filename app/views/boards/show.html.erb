@@ -1,16 +1,17 @@
-<%= render '/layouts/show_header' %>
 
-<div id="carouselExampleControls" class="header_footer padding-side carousel slide" data-ride="carousel">
-  <div class="carousel-inner showBOX padding-side">
-    <div class="carousel-item active bibleScroll">
-      <div class="show showContent m-2">
-        <%= simple_format(BoardsHelper.bibleContent(@board),class: "bible") %>
+<%= render '/layouts/show_header' %>
+<div class="header padding-side swiper-container" >
+ <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide padding-side">
+         <div class="show showContent m-2">
+            <%= simple_format(BoardsHelper.bibleContent(@board),class: "bible") %>
+          </div>
+          <div class="show showDate m-2">
+            <%= BoardsHelper.readBibleFromTo(@board) %>
+          </div>
       </div>
-      <div class="show showDate m-2">
-        <%= BoardsHelper.readBibleFromTo(@board) %>
-      </div>
-    </div>
-    <div class="carousel-item">
+      <div class="swiper-slide padding-side">
         <div class="padding-side widthFull">
           <div class="show showContent m-2">
             <%= simple_format(@board.content,class: "content") %>
@@ -20,56 +21,22 @@
             <%= BoardsHelper.readBibleFromTo(@board) %>
           </div>
         </div>
+      </div>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+  <div class="swiper-pagination"></div>
 </div>
 
-<footer class="footer">
-</footer>
-
-
-<style>
-.bibleScroll {
-  overflow: scroll;
-}
-.showBOX {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height:100%;
-  border: 1px solid #c5c5c5;
-  background-size: cover;
-}
-.title {
-  font-size: 15px;
-}
-.content {
-  font-size: 11px !important;
-}
-.bible {
-  font-size: 11px !important;
-}
-#carouselExampleControls{
-    height: calc(100% - 56px - 56px);
-}
-.carousel-inner {
-  height:100%;
-  }
-  
-</style>
-
 <script>
-$('.carousel').carousel({
-  interval: 600000
-})
-
+  var swiper = new Swiper('.swiper-container', {
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'fraction',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+  $(".showContent").scrollTop = 0;
 </script>
