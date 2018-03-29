@@ -1,4 +1,4 @@
-<div class="newBoardBOX widthFull">
+<div class="widthFull">
   <%= form_with(model: board, local: true,class: :newBoard) do |form| %>
   <div class="errorMessage">
     <% if board.errors.any? %>
@@ -13,42 +13,48 @@
       </div>
     <% end %>
   </div>
-  <div class="field newBoard newBoardTitle">
-      <%= form.text_field :title, id: :board_title, placeholder: "제목"%>
-  </div>
- 
-  <div class="field newBoard newBoard newBoardContent">
-    <%= form.text_area :content, id: :board_content,size:100,placeholder: "말씀을 입력하세요."%>
-  </div>
- <div class="newBoardBible ">
+
+ <div class="newBoardBible bibleSelect">
+
+    <div class="field newBook">
+        <%= form.select :bookAbbr, BoardsHelper.bookList, id: :board_bookAbbr,:selected => "ge"%>
+    </div>
     <div class="startBible">
-        <div class="field newBook">
-            <%= form.select :bookAbbr, BoardsHelper.bookList, id: :board_bookAbbr,:selected => "ge"%>
-        </div>
         <div class="field newBible">
           <%= form.select :startChapter,options_for_select(1..50), id: :board_startChapter,:selected =>"1"%>
         </div>
         <div class="field newBible">
-          <%= form.text_field :startVerse, id: :board_startVerse ,placeholder: "1"%>
+          <%= form.telephone_field :startVerse, id: :board_startVerse ,placeholder: "1"%>
         </div>
     </div>
-    <div>~</div>
+    <div>-</div>
     <div class="endBible">
-
       <div class="field newBible">  
         <%= form.select :endChapter,options_for_select(1..50), id: :board_endChapter,:selected =>"1"%>
       </div>
       <div class="field newBible">
-        <%= form.text_field :endVerse, id: :board_endVerse,placeholder: "1"%>
+        <%= form.telephone_field :endVerse, id: :board_endVerse,placeholder: "1"%>
       </div>
       <div class="hidden_field">
           <%= form.hidden_field :user_id, id: :review_user_id, value: current_user.id%>
       </div>
     </div>
   </div>
+
+  <div class="newBoardBOX">
+    <div class="field newBoard newBoardTitle">
+        <%= form.text_field :title, id: :board_title, placeholder: "제목"%>
+    </div>
+  
+    <div class="field newBoard newBoard newBoardContent">
+      <%= form.text_area :content, id: :board_content,size:100,placeholder: "말씀을 입력하세요."%>
+    </div>
+  </div>
   <% end %>
 </div>
+<style>
 
+</style>
 <script>
 
   $(document).ready(function(){
@@ -56,7 +62,6 @@
   var bookAbbr = "select[name='board[bookAbbr]']"
  
   var changeSelect = function (){
-    
     var startSelector = 'select[name="board[startChapter]"]'
     var endSelector = selector = 'select[name="board[endChapter]"]'
 
