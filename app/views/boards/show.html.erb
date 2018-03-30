@@ -4,12 +4,14 @@
  <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide padding-side">
-         <div class="show showContent m-2">
+        <div class="showData">
+         <div class="show showContent m-2"> 
             <%= simple_format(BoardsHelper.bibleContent(@board),class: "bible") %>
           </div>
           <div class="show showDate m-2">
             <%= BoardsHelper.readBibleFromTo(@board) %>
           </div>
+        </div>
       </div>
       <div class="swiper-slide padding-side">
         <div class="padding-side widthFull">
@@ -38,5 +40,10 @@
       prevEl: '.swiper-button-prev',
     },
   });
-  $(".showContent").scrollTop = 0;
+  
+  showDataHeight = $(".showData")[0].clientHeight;
+  setpadding = showDataHeight - 555;
+
+  $(".showData").css("margin-top",setpadding);
+ 
 </script>
