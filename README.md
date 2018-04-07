@@ -2,7 +2,7 @@
 
 #### 데일리 큐티 WEB SERVICE Version
 
-- www.dailyquiettime.com
+- https://www.dailyquietime.com/
 
 ### 이 서비스를 통해
 
